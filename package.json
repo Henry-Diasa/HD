@@ -15,7 +15,7 @@
   "author": "",
   "main": "index.js",
   "scripts": {
-    "build:site": "cross-env SITE_BUILD_ENV=build && rimraf doc-dist && dumi build",
+    "build:site": "rimraf doc-dist && dumi build",
     "commit": "git-cz",
     "deploy:site": "npm run build:site && gh-pages -d doc-dist",
     "dev": "dumi dev",
@@ -55,7 +55,7 @@
     "commitizen": "^4.3.0",
     "cross-env": "^7.0.3",
     "cz-conventional-changelog": "^3.3.0",
-    "dumi": "^2.1.13",
+    "dumi": "^2.0.6",
     "gh-pages": "^5.0.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.1.2",
