@@ -15,11 +15,11 @@
   "author": "",
   "main": "index.js",
   "scripts": {
-    "build:site": "cross-env SITE_BUILD_ENV=build && rimraf dist && dumi build",
+    "build:site": "cross-env SITE_BUILD_ENV=build && rimraf doc-site && dumi build",
     "commit": "git-cz",
-    "deploy:site": "npm run build:site && gh-pages -d dist",
+    "deploy:site": "npm run build:site && gh-pages -d doc-site",
     "dev": "dumi dev",
-    "preview:site": "cross-env SITE_BUILD_ENV=PREVIEW && npm run build:site && serve dist"
+    "preview:site": "cross-env SITE_BUILD_ENV=PREVIEW && npm run build:site && serve doc-site"
   },
   "husky": {
     "hooks": {
