@@ -1,5 +1,5 @@
 import { defineConfig } from 'dumi';
-let base = '/HD/';
+let base = '/';
 let publicPath = '/HD/';
 console.log(process.env.SITE_BUILD_ENV, 1111111);
 // if (process.env.SITE_BUILD_ENV === 'PREVIEW') {
