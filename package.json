@@ -19,7 +19,6 @@
     "lib/**/style/*",
     "*.less"
   ],
-  "type": "module",
   "main": "lib/index.js",
   "module": "esm/index.js",
   "typings": "lib/index.d.ts",
