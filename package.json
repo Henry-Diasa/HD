@@ -13,9 +13,20 @@
   },
   "license": "ISC",
   "author": "",
-  "main": "index.js",
+  "sideEffects": [
+    "dist/*",
+    "esm/**/style/*",
+    "lib/**/style/*",
+    "*.less"
+  ],
+  "main": "lib/index.js",
+  "module": "esm/index.js",
+  "typings": "lib/index.d.ts",
   "scripts": {
+    "build": "npm run clean && npm run build:types && gulp",
     "build:site": "rimraf doc-dist && dumi build",
+    "build:types": "tsc -p tsconfig.build.json && cpr lib esm",
+    "clean": "rimraf lib esm dist",
     "commit": "git-cz",
     "deploy:site": "npm run build:site && gh-pages -d doc-dist",
     "dev": "dumi dev",
@@ -44,25 +55,39 @@
     }
   },
   "dependencies": {
+    "@babel/runtime": "^7.21.0",
     "prop-types": "^15.8.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.21.0",
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@babel/plugin-transform-runtime": "^7.21.0",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-react": "^7.18.6",
+    "@babel/preset-typescript": "^7.21.0",
     "@commitlint/cli": "^17.4.4",
     "@commitlint/config-conventional": "^17.4.4",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@umijs/fabric": "^2.14.1",
     "commitizen": "^4.3.0",
+    "cpr": "^3.0.1",
     "cross-env": "^7.0.3",
     "cz-conventional-changelog": "^3.3.0",
     "dumi": "^2.0.6",
     "gh-pages": "^5.0.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-cssnano": "^2.1.3",
+    "gulp-less": "^5.0.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.1.2",
     "prettier": "^2.8.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "serve": "^14.2.0",
+    "through2": "^4.0.2",
     "typescript": "^4.9.5"
   }
 }
